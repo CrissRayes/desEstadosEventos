@@ -1,29 +1,15 @@
 import { useState } from 'react'
 import Boton from './components/Boton'
 
-// Mi primer custom hook :D
-function useActive () {
-  const [active, setActive] = useState( false )
-  const handleFalse = () => setActive( false )
-  const handleTrue = () => setActive( true )
-
-  return {
-    active,
-    handleFalse,
-    handleTrue
-  }
-
-}
-
-
 function App () {
   // Estados de los inputs
   const [nombre, setNombre] = useState( '' )
   const [contrasena, setContrasena] = useState( '' )
   const [error, setError] = useState( false )
   const [mensaje, setMensaje] = useState( '' )
+  const [active, setActive] = useState( false )
 
-  const { active, handleFalse, handleTrue } = useActive()
+  // const { active, handleFalse, handleTrue } = useActive()
 
   const validarDatos = ( e ) => {
     e.preventDefault()
@@ -45,7 +31,7 @@ function App () {
       setMensaje( '' )
       setContrasena( '' )
       setNombre( '' )
-      handleFalse() // Desactiva el botón
+      setActive( false ) // Desactiva el botón
     }
 
   }
@@ -61,7 +47,7 @@ function App () {
             className='form-control'
             onChange={ ( e ) => {
               setNombre( e.target.value )
-              handleTrue() // Activa el botón
+              setActive( true ) // Activa el botón
             } }
             value={ nombre }
           />
@@ -74,7 +60,7 @@ function App () {
             className='form-control'
             onChange={ ( e ) => {
               setContrasena( e.target.value )
-              handleTrue() // Activa el botón 
+              setActive( true ) // Activa el botón 
             } }
             value={ contrasena }
           />
