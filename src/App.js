@@ -36,6 +36,7 @@ function App () {
 
   return (
     <div className="App">
+      <h1>Desafío estado de los componentes y eventos</h1>
       <form className='formulario' onSubmit={ validarDatos }>
         { error && <p className='alert alert-danger'>{ mensaje }</p> }
         <div className='form-group'>
