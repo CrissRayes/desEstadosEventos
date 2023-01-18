@@ -10,6 +10,14 @@ function App () {
   const [mensaje, setMensaje] = useState( '' )
   const [active, setActive] = useState( false )
 
+  const handleButton = () => {
+    if ( nombre !== '' && contrasena !== '' ) {
+      setActive( true )
+    } else {
+      setActive( false )
+    }
+  }
+
   const validarDatos = ( e ) => {
     e.preventDefault()
 
@@ -47,7 +55,7 @@ function App () {
             className='form-control'
             onChange={ ( e ) => {
               setNombre( e.target.value )
-              setActive( true ) // Activa el botón
+              handleButton()
             } }
             value={ nombre }
           />
@@ -60,7 +68,7 @@ function App () {
             className='form-control'
             onChange={ ( e ) => {
               setContrasena( e.target.value )
-              setActive( true ) // Activa el botón 
+              handleButton()
             } }
             value={ contrasena }
           />
