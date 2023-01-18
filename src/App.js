@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Boton from './components/Boton'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App () {
   // Estados de los inputs
@@ -35,8 +36,8 @@ function App () {
   }
 
   return (
-    <div className="App">
-      <h1>Desafío estado de los componentes y eventos</h1>
+    <div className="App container">
+      <h2 className='mb-5'>Desafío estado de los componentes y eventos</h2>
       <form className='formulario' onSubmit={ validarDatos }>
         { error && <p className='alert alert-danger'>{ mensaje }</p> }
         <div className='form-group'>
