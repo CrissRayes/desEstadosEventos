@@ -9,8 +9,6 @@ function App () {
   const [mensaje, setMensaje] = useState( '' )
   const [active, setActive] = useState( false )
 
-  // const { active, handleFalse, handleTrue } = useActive()
-
   const validarDatos = ( e ) => {
     e.preventDefault()
 
