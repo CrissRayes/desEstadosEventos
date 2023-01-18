@@ -27,7 +27,7 @@ function App () {
     } else {
       setColor( 'alert alert-success' )
       setAlerta( true )
-      setMensaje( 'Sesión iniciada correctamente' )
+      setMensaje( '🎉 Sesión iniciada correctamente' )
       setContrasena( '' )
       setNombre( '' )
       setActive( false )
