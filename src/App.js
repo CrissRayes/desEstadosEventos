@@ -11,7 +11,7 @@ function App () {
   const [color, setColor] = useState( '' )
 
   const handleButton = () => {
-    if ( nombre === '' || contrasena === '' ) {
+    if ( [nombre, contrasena].includes( '' ) ) { // verifica si alguno de los campos está vacío
       setActive( false )
     } else {
       setActive( true )
@@ -69,7 +69,7 @@ function App () {
             value={ contrasena }
           />
         </div>
-        { active && <Boton texto="Iniciar Sesión" /> }
+        { active && <Boton>Iniciar Sesión</Boton> } {/* le pasa todas las props al hijo por children */ }
       </form>
     </div>
   );
