@@ -8,19 +8,20 @@ function App () {
   const [alerta, setAlerta] = useState( false ) // Estado para el error
   const [mensaje, setMensaje] = useState( '' ) // Estado para el mensaje de error
   const [active, setActive] = useState( false ) // Estado para el botón
-  const [color, setColor] = useState( 'alert alert-danger' )
+  const [color, setColor] = useState( '' )
 
   const handleButton = () => {
-    if ( nombre !== '' && contrasena !== '' ) {
-      setActive( true )
-    } else {
+    if ( nombre === '' || contrasena === '' ) {
       setActive( false )
+    } else {
+      setActive( true )
     }
   }
 
   const validarDatos = ( e ) => {
     e.preventDefault()
     if ( nombre !== 'ADL' && contrasena !== '252525' ) {
+      setColor( 'alert alert-danger' )
       setAlerta( true )
       setMensaje( '⛔️ Los datos son incorrectos!' )
       return
@@ -46,7 +47,9 @@ function App () {
             className='form-control'
             onChange={ ( e ) => {
               setNombre( e.target.value )
+              console.log( e.target.value )
               handleButton()
+              setAlerta( false )
             } }
             value={ nombre }
           />
@@ -59,7 +62,9 @@ function App () {
             className='form-control'
             onChange={ ( e ) => {
               setContrasena( e.target.value )
+              console.log( e.target.value )
               handleButton()
+              setAlerta( false )
             } }
             value={ contrasena }
           />
