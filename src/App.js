@@ -18,7 +18,7 @@ function App () {
     }
   }
 
-  const validarDatos = ( e ) => {
+  const handleSubmit = ( e ) => {
     e.preventDefault()
     if ( nombre !== 'ADL' && contrasena !== '252525' ) {
       setColor( 'alert alert-danger' )
@@ -38,7 +38,7 @@ function App () {
   return (
     <div className="App container">
       <h2 className='mb-5'>Desafío estado de los componentes y eventos</h2>
-      <form className='formulario' onSubmit={ validarDatos }>
+      <form className='formulario' onSubmit={ handleSubmit }>
         { alerta && <p className={ color }>{ mensaje }</p> }
         <div className='form-group'>
           <label>Nombre</label>
