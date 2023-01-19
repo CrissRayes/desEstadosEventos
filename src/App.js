@@ -36,7 +36,6 @@ function App () {
       setColor( 'alert alert-danger' )
       setAlerta( true )
       setMensaje( '⛔️ Los datos son incorrectos!' )
-      return
     } else {
       setColor( 'alert alert-success' )
       setAlerta( true )
