@@ -8,13 +8,25 @@ function App () {
   const [alerta, setAlerta] = useState( false ) // Estado para el error
   const [mensaje, setMensaje] = useState( '' ) // Estado para el mensaje de error
   const [active, setActive] = useState( false ) // Estado para el botón
-  const [color, setColor] = useState( '' )
+  const [color, setColor] = useState( '' ) // Estado para el color de la alerta
 
   const handleButton = () => {
     if ( [nombre, contrasena].includes( '' ) ) { // verifica si alguno de los campos está vacío
       setActive( false )
     } else {
       setActive( true )
+    }
+  }
+
+  const handleChange = ( e ) => {
+    if ( e.target.name === 'nombre' ) { // verifica si el input es nombre
+      setNombre( e.target.value ) // setea el estado con el valor del input
+      handleButton()
+      setAlerta( false )
+    } else {
+      setContrasena( e.target.value ) // setea el estado con el valor del input
+      handleButton()
+      setAlerta( false )
     }
   }
 
@@ -43,30 +55,22 @@ function App () {
         <div className='form-group'>
           <label>Nombre</label>
           <input
+            name='nombre'
             type='text'
             className='form-control'
-            onChange={ ( e ) => {
-              setNombre( e.target.value )
-              console.log( e.target.value )
-              handleButton()
-              setAlerta( false )
-            } }
-            value={ nombre }
+            onChange={ handleChange }
+            value={ nombre } // le pasa el valor del estado al input
           />
 
         </div>
         <div className='form-group'>
           <label>Contraseña</label>
           <input
+            name='contrasena'
             type='password'
             className='form-control'
-            onChange={ ( e ) => {
-              setContrasena( e.target.value )
-              console.log( e.target.value )
-              handleButton()
-              setAlerta( false )
-            } }
-            value={ contrasena }
+            onChange={ handleChange }
+            value={ contrasena } // le pasa el valor del estado al input
           />
         </div>
         { active && <Boton>Iniciar Sesión</Boton> } {/* le pasa todas las props al hijo por children */ }
